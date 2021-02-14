@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+
+$main-color: rgb(0, 122, 255);
+
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f2f8fa;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+.header {
+  height: 65px;
+  width: 100vw;
+  background-color: white;
+
+  .container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.4rem;
+
+    .image-wrapper {
+      img {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        min-height: 40px;
+        max-height: 90px;
+        max-width: 90px;
+      }
+    }
+
+    .ham {
+      .line {
+        display: block;
+        height: 1.8px;
+        width: 26px;
+        background-color: hsl(233, 26%, 24%);
+
+        &:not(:last-child) {
+          margin-bottom: 3px;
+        }
+      }
+    }
+
+    .menu {
+      .menu-item {
+        text-decoration: none;
+        color: black;
+        transition: all 200ms ease;
+        &:not(:last-child) {
+          margin-right: 1.4rem;
+        }
+        &:hover {
+          color: $main-color;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .menu {
+    position: absolute;
+    height: calc(100vh - 65px);
+    display: flex;
+    width: 300px;
+    top: 65px;
+    left: -300px;
+    flex-direction: column;
+    transition: left 300ms ease;
+    padding-top: 2rem;
+    background-color: white;
+    
+    .menu-item {
+      margin-left: 1.5rem;
+      &:not(:last-child) {
+        margin-bottom: 2.7rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .ham {
+    display: none;
+  }
+}
+
+// - start - menu toggle on mobile.
+.menu-toggle {
+  left: 0;
+}
+// - end - menu toggle on mobile.
+
+// ############################# - end of header - #############################
+
+main {
+  display: flex;
+  height: calc(100vh - 65px);
+  
+  .left {
+    flex-grow: 1;
+    padding-top: 8rem;
+    padding-left: 2.5rem;
+    color: rgb(28, 28, 30);
+
+    .title {
+      font-size: 48px;
+      margin-bottom: 1rem;
+      background: linear-gradient(to right, #1c1c28, #acacb1);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      padding-left: 2px;
+      margin-bottom: 2rem;
+    }
+
+    .cta {
+      text-decoration: none;
+      background-color: $main-color;
+      color: rgb(244, 244, 249);
+      padding: 0.3rem 1rem;
+      border-radius: 20px;
+      outline: none;
+      border: none;
+
+      &:hover {
+        background-color:rgb(29, 117, 211);
+        color: white;
+      }
+    }
+    
+    .cta-2 {
+      text-decoration: none;
+      background-color: rgb(255, 50, 90);
+      color: rgb(244, 244, 247);
+      color: white;
+      padding: 0.3rem 1rem;
+      border-radius: 20px;
+      outline: none;
+      border: none;
+      margin-left: 0.6rem;
+
+      &:hover {
+        background-color: rgb(223, 39, 75);
+        color: white;
+      }
+    }
+  }
+
+  .right {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -1rem;
+    .astro {
+      margin-right: 2.7rem;
+      width: 520px;
+      height: 520px;
+    }
+  }
+}
+
+@media screen and (max-width: 1099px) {
+  main {
+    height: calc(100vh - 65px);
+    flex-direction: column-reverse;
+    
+    .right {
+      height: calc((100vh - 65px) / 2);
+      margin-top: 0;
+      display: flex;
+      justify-content: center;
+      overflow-y: hidden;
+      .astro {
+        padding: 2rem 0 2rem 4rem;
+        margin-left: 6rem;
+        max-height: 100%;
+        max-width: 100%;
+        min-width: 300px;
+        min-height: 300px;
+      }
+    }
+    
+    .left {
+      height: calc((100vh - 65px) / 2);
+      text-align: center;
+      padding-top: 2rem;
+      padding-left: 0;
+    }
+  }
+}
